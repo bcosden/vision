@@ -1,11 +1,4 @@
 {
-<<<<<<< HEAD
-    "saveEndpoint": "https://sarosvisionfuncapp12208.azurewebsites.net/api/save",
-    "trainEndpoint": "https://sarosvisionfuncapp12208.azurewebsites.net/api/train",
-    "statusEndpoint": "https://sarosvisionfuncapp12208.azurewebsites.net/api/train",
-    "modelEndpoint": "https://sarosvisionfuncapp12208.azurewebsites.net/api/model",
-=======
     "saveEndpoint": "http://localhost:7071/api/save",
->>>>>>> upstream/master
     "maxSubmitCount": 4
 }

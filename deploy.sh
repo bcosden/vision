@@ -52,14 +52,14 @@ az cognitiveservices account create --kind CustomVision.Prediction \
 ######### APP
 # CustomVision
 # => Install package
-pip3 install azure-cognitiveservices-vision-customvision
+pip install azure-cognitiveservices-vision-customvision
 
 # => Get key/endpoint
 trainingKey=$(az cognitiveservices account keys list --name $customVisionTrainer --resource-group $resourceGroup --query key1 -o tsv)
 apiEndpoint=$(az cognitiveservices account show --name $customVisionTrainer --resource-group $resourceGroup --query endpoint -o tsv)
 
 # => Create CustomVision Project
-projectId=$(python3 -c "from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient;print(CustomVisionTrainingClient('$trainingKey', endpoint='$apiEndpoint').create_project('seer', domain_id='0732100f-1a38-4e49-a514-c9b44c697ab5', classification_type='Multiclass').id)")
+projectId=$(python -c "from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient;print(CustomVisionTrainingClient('$trainingKey', endpoint='$apiEndpoint').create_project('seer', domain_id='0732100f-1a38-4e49-a514-c9b44c697ab5', classification_type='Multiclass').id)")
 
 
 # enable static websites
@@ -89,15 +89,7 @@ az storage container create --name images
 az webapp config appsettings set --name $functionAppName --resource-group $resourceGroup --settings StorageAccount=$storageName StorageContainer=images StorageAccountKey=$AZURE_STORAGE_KEY TrainingKey=$trainingKey ApiEndpoint=$apiEndpoint ProjectId=$projectId
 
 # Get Azure Credentials
-<<<<<<< HEAD
-az ad sp create-for-rbac --name $rbacAppName --role contributor \
-                            --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroup \
-                            --sdk-auth > creds.json
-
-cat creds.json
-=======
 creds=$(az ad sp create-for-rbac --name $rbacAppName --role contributor --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroup --sdk-auth)
 # Create secrets file
 printf "GitHub Secrets\n--------------\nFUNC_APP => $functionAppName\nSTORAGE_ACCOUNT => $storageName\nSTORAGE_KEY => $AZURE_STORAGE_KEY\nCREDENTIALS =>\n$creds\n" > creds.txt
 cat creds.txt
->>>>>>> upstream/master
