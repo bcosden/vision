@@ -1,7 +1,7 @@
 {
-    "saveEndpoint": "http://localhost:7071/api/save",
-    "trainEndpoint": "http://localhost:7071/api/train",
-    "statusEndpoint": "http://localhost:7071/api/train",
-    "modelEndpoint": "http://localhost:7071/api/model",
+    "saveEndpoint": "https://sarvisionfuncapp12696.azurewebsites.net/api/save",
+    "trainEndpoint": "https://sarvisionfuncapp12696.azurewebsites.net/api/train",
+    "statusEndpoint": "https://sarvisionfuncapp12696.azurewebsites.net/api/train",
+    "modelEndpoint": "https://sarvisionfuncapp12696.azurewebsites.net/api/model",
     "maxSubmitCount": 4
 }
