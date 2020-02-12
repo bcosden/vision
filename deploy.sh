@@ -54,14 +54,14 @@ az cognitiveservices account create --kind CustomVision.Prediction \
 ######### APP
 # CustomVision
 # => Install package
-pip install azure-cognitiveservices-vision-customvision
+pip3 install azure-cognitiveservices-vision-customvision
 
 # => Get key/endpoint
 trainingKey=$(az cognitiveservices account keys list --name $customVisionTrainer --resource-group $resourceGroup --query key1 | tr -d \")
 apiEndpoint=$(az cognitiveservices account show --name $customVisionTrainer --resource-group $resourceGroup --query endpoint | tr -d \")
 
 # => Create CustomVision Project
-projectId=$(python -c "from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient;print(CustomVisionTrainingClient('$trainingKey', endpoint='$apiEndpoint').create_project('seer', domain_id='0732100f-1a38-4e49-a514-c9b44c697ab5', classification_type='Multiclass').id)")
+projectId=$(python3 -c "from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient;print(CustomVisionTrainingClient('$trainingKey', endpoint='$apiEndpoint').create_project('seer', domain_id='0732100f-1a38-4e49-a514-c9b44c697ab5', classification_type='Multiclass').id)")
 
 
 # enable static websites

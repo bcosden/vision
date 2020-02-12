@@ -1,7 +1,7 @@
 {
-    "saveEndpoint": "https://sarvisionfuncapp12696.azurewebsites.net/api/save",
-    "trainEndpoint": "https://sarvisionfuncapp12696.azurewebsites.net/api/train",
-    "statusEndpoint": "https://sarvisionfuncapp12696.azurewebsites.net/api/train",
-    "modelEndpoint": "https://sarvisionfuncapp12696.azurewebsites.net/api/model",
+    "saveEndpoint": "https://sarosvisionfuncapp12208.azurewebsites.net/api/save",
+    "trainEndpoint": "https://sarosvisionfuncapp12208.azurewebsites.net/api/train",
+    "statusEndpoint": "https://sarosvisionfuncapp12208.azurewebsites.net/api/train",
+    "modelEndpoint": "https://sarosvisionfuncapp12208.azurewebsites.net/api/model",
     "maxSubmitCount": 4
 }
